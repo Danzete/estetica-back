@@ -44,6 +44,13 @@ public class ClientDTO {
     private BigDecimal totalCompras;
     private LocalDate ultimaCompra;
     
+    // Campos para documento
+    private String documentoUrl;        // URL para acessar o documento
+    private String nomeArquivoOriginal; // Nome original do arquivo
+    private String tipoArquivo;         // MIME type
+    private Long tamanhoArquivo;        // Tamanho em bytes
+    private Boolean temDocumento;       // Indica se possui documento
+    
     // Constructors
     public ClientDTO() {}
     
@@ -86,4 +93,23 @@ public class ClientDTO {
     
     public LocalDate getUltimaCompra() { return ultimaCompra; }
     public void setUltimaCompra(LocalDate ultimaCompra) { this.ultimaCompra = ultimaCompra; }
+    
+    // Getters e Setters para documento
+    public String getDocumentoUrl() { return documentoUrl; }
+    public void setDocumentoUrl(String documentoUrl) { 
+        this.documentoUrl = documentoUrl;
+        this.temDocumento = documentoUrl != null && !documentoUrl.isEmpty();
+    }
+    
+    public String getNomeArquivoOriginal() { return nomeArquivoOriginal; }
+    public void setNomeArquivoOriginal(String nomeArquivoOriginal) { this.nomeArquivoOriginal = nomeArquivoOriginal; }
+    
+    public String getTipoArquivo() { return tipoArquivo; }
+    public void setTipoArquivo(String tipoArquivo) { this.tipoArquivo = tipoArquivo; }
+    
+    public Long getTamanhoArquivo() { return tamanhoArquivo; }
+    public void setTamanhoArquivo(Long tamanhoArquivo) { this.tamanhoArquivo = tamanhoArquivo; }
+    
+    public Boolean getTemDocumento() { return temDocumento; }
+    public void setTemDocumento(Boolean temDocumento) { this.temDocumento = temDocumento; }
 }
