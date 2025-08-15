@@ -1,0 +1,84 @@
+-- SQL para inserir clientes fictícios baseado na entidade Cliente
+-- Inclui pessoas físicas, jurídicas e profissionais com CRO
+
+INSERT INTO clientes (nome, tipo, cpf, cnpj, cro, inscricao_estadual, inscricao_municipal, email, telefone, celular, endereco, bairro, cep, cidade, estado, data_nascimento, data_criacao) VALUES
+
+-- Pessoas Físicas
+('Luciene Serafim', 'FISICA', '12345678901', NULL, NULL, NULL, NULL, 'luciene.serafim@email.com', '(21) 2234-5678', '(21) 98765-4321', 'Rua das Flores, 123', 'Centro', '28625-000', 'Nova Friburgo', 'RJ', '1985-03-15', NOW()),
+
+('Lívia Monteiro', 'FISICA', '23456789012', NULL, NULL, NULL, NULL, 'livia.monteiro@email.com', '(21) 2345-6789', '(21) 98765-4322', 'Av. Alberto Braune, 456', 'Centro', '28625-001', 'Nova Friburgo', 'RJ', '1990-07-22', NOW()),
+
+('Josiane Freitas', 'FISICA', '34567890123', NULL, NULL, NULL, NULL, 'josiane.freitas@email.com', '(21) 2456-7890', '(21) 98765-4323', 'Rua Monsenhor Miranda, 789', 'Olaria', '28625-002', 'Nova Friburgo', 'RJ', '1988-12-10', NOW()),
+
+('Sonia Thomas', 'FISICA', '45678901234', NULL, NULL, NULL, NULL, 'sonia.thomas@email.com', '(21) 2567-8901', '(21) 98765-4324', 'Rua Silvio Henrique Braune, 321', 'Centro', '28625-003', 'Nova Friburgo', 'RJ', '1982-05-18', NOW()),
+
+('Gabriela Issa', 'FISICA', '56789012345', NULL, NULL, NULL, NULL, 'gabriela.issa@email.com', '(21) 2678-9012', '(21) 98765-4325', 'Av. Governador Roberto Silveira, 654', 'Suspiro', '28625-004', 'Nova Friburgo', 'RJ', '1992-09-03', NOW()),
+
+('Felipe Silva', 'FISICA', '67890123456', NULL, NULL, NULL, NULL, 'felipe.silva@email.com', '(21) 2789-0123', '(21) 98765-4326', 'Rua General Osório, 987', 'Centro', '28625-005', 'Nova Friburgo', 'RJ', '1987-01-28', NOW()),
+
+('Gabriela Falcão', 'FISICA', '78901234567', NULL, NULL, NULL, NULL, 'gabriela.falcao@email.com', '(21) 2890-1234', '(21) 98765-4327', 'Rua São Clemente, 147', 'São Clemente', '28625-006', 'Nova Friburgo', 'RJ', '1991-11-14', NOW()),
+
+('Amanda Ramos', 'FISICA', '89012345678', NULL, NULL, NULL, NULL, 'amanda.ramos@email.com', '(21) 2901-2345', '(21) 98765-4328', 'Rua Conde de Nova Friburgo, 258', 'Centro', '28625-007', 'Nova Friburgo', 'RJ', '1989-04-07', NOW()),
+
+('Nicole Silva', 'FISICA', '90123456789', NULL, NULL, NULL, NULL, 'nicole.silva@email.com', '(21) 2012-3456', '(21) 98765-4329', 'Av. Euclydes da Cunha, 369', 'Olaria', '28625-008', 'Nova Friburgo', 'RJ', '1993-08-25', NOW()),
+
+('Eduarda Antunes', 'FISICA', '01234567890', NULL, NULL, NULL, NULL, 'eduarda.antunes@email.com', '(21) 2123-4567', '(21) 98765-4330', 'Rua Visconde de Nova Friburgo, 741', 'Centro', '28625-009', 'Nova Friburgo', 'RJ', '1986-02-19', NOW()),
+
+-- Profissionais com CRO (Dentistas)
+('Joyce Scabell', 'FISICA', '11234567891', NULL, 'CRO-RJ 12345', NULL, NULL, 'joyce.scabell@dental.com', '(21) 2234-5679', '(21) 98765-4331', 'Rua Marechal Deodoro, 852', 'Centro', '28625-010', 'Nova Friburgo', 'RJ', '1984-06-12', NOW()),
+
+('Paulo Vitor Santos Andrade da Rocha', 'FISICA', '21234567892', NULL, 'CRO-RJ 23456', NULL, NULL, 'paulo.vitor@dental.com', '(21) 2345-6780', '(21) 98765-4332', 'Av. Presidente Vargas, 963', 'Suspiro', '28625-011', 'Nova Friburgo', 'RJ', '1980-10-30', NOW()),
+
+('Carla Gonçalves de Oliveira', 'FISICA', '31234567893', NULL, 'CRO-RJ 34567', NULL, NULL, 'carla.goncalves@dental.com', '(21) 2456-7891', '(21) 98765-4333', 'Rua Tiradentes, 159', 'Centro', '28625-012', 'Nova Friburgo', 'RJ', '1983-12-08', NOW()),
+
+('Renata Sanna e Silva', 'FISICA', '41234567894', NULL, 'CRO-RJ 45678', NULL, NULL, 'renata.sanna@dental.com', '(21) 2567-8902', '(21) 98765-4334', 'Rua Barão do Rio Branco, 753', 'Centro', '28625-013', 'Nova Friburgo', 'RJ', '1981-07-16', NOW()),
+
+-- Pessoas Jurídicas
+('MM Serviços Neurológicos Ltda', 'JURIDICA', NULL, '12345678000195', NULL, '123456789', '987654321', 'contato@mmservicos.com.br', '(21) 2678-9013', '(21) 98765-4335', 'Av. Nilo Peçanha, 456', 'Centro', '28625-014', 'Nova Friburgo', 'RJ', NULL, NOW()),
+
+('Caroline Tavares Estética ME', 'JURIDICA', NULL, '23456789000196', NULL, '234567890', '876543210', 'caroline@esteticatavares.com.br', '(21) 2789-0124', '(21) 98765-4336', 'Rua São José, 789', 'São Geraldo', '28625-015', 'Nova Friburgo', 'RJ', NULL, NOW()),
+
+('Centro de Estética Avançada Modela Derme Eirell', 'JURIDICA', NULL, '34567890000197', NULL, '345678901', '765432109', 'contato@modeladerme.com.br', '(21) 2890-1235', '(21) 98765-4337', 'Av. Governador Portela, 147', 'Centro', '28625-016', 'Nova Friburgo', 'RJ', NULL, NOW()),
+
+('Luana Corrêa Navarro Souza Consultoria', 'JURIDICA', NULL, '45678901000198', NULL, '456789012', '654321098', 'luana@consultorianavarro.com.br', '(21) 2901-2346', '(21) 98765-4338', 'Rua Presidente Costa e Silva, 258', 'Conselheiro Paulino', '28625-017', 'Nova Friburgo', 'RJ', NULL, NOW()),
+
+('Rosângela Pereira Lemos Serviços', 'JURIDICA', NULL, '56789012000199', NULL, '567890123', '543210987', 'rosangela@pereiraservicos.com.br', '(21) 2012-3457', '(21) 98765-4339', 'Rua Caetano Furquim, 369', 'Olaria', '28625-018', 'Nova Friburgo', 'RJ', NULL, NOW()),
+
+('Marcelli Menezes de Carvalho Simões Castilho', 'JURIDICA', NULL, '67890123000200', NULL, '678901234', '432109876', 'marcelli@castilhoservicos.com.br', '(21) 2123-4568', '(21) 98765-4340', 'Av. Presidente Getúlio Vargas, 741', 'Centro', '28625-019', 'Nova Friburgo', 'RJ', NULL, NOW()),
+
+-- Mais alguns clientes variados
+('Shelany Gomes Baptista', 'FISICA', '12345678902', NULL, NULL, NULL, NULL, 'shelany.gomes@email.com', '(21) 2234-5680', '(21) 98765-4341', 'Rua José Bonifácio, 852', 'Ponte da Saudade', '28625-020', 'Nova Friburgo', 'RJ', '1990-03-22', NOW()),
+
+('Bruna Torres A. De Souza', 'FISICA', '23456789013', NULL, NULL, NULL, NULL, 'bruna.torres@email.com', '(21) 2345-6781', '(21) 98765-4342', 'Rua Dante Laginestra, 963', 'Petrópolis', '28625-021', 'Nova Friburgo', 'RJ', '1994-09-11', NOW()),
+
+('Nelma Gonçalves de Freitas', 'FISICA', '34567890124', NULL, NULL, NULL, NULL, 'nelma.goncalves@email.com', '(21) 2456-7892', '(21) 98765-4343', 'Rua Marechal Floriano, 159', 'Centro', '28625-022', 'Nova Friburgo', 'RJ', '1987-06-05', NOW()),
+
+('Tatiana Monteiro Guerzet', 'FISICA', '45678901235', NULL, NULL, NULL, NULL, 'tatiana.monteiro@email.com', '(21) 2567-8903', '(21) 98765-4344', 'Av. Waldir Teixeira da Costa, 753', 'Conselheiro Paulino', '28625-023', 'Nova Friburgo', 'RJ', '1985-12-18', NOW()),
+
+('Gabriela Alice Verena Bernhard Issa', 'FISICA', '56789012346', NULL, NULL, NULL, NULL, 'gabriela.alice@email.com', '(21) 2678-9014', '(21) 98765-4345', 'Rua Quinze de Novembro, 456', 'Centro', '28625-024', 'Nova Friburgo', 'RJ', '1991-04-27', NOW());
+-- Inserindo vendas de teste
+INSERT INTO vendas (cliente_id, valor_total, total_comissao, frete, forma_pagamento, observacoes, data_venda, status) VALUES
+(1, 500.00, 50.00, 10.00, 'PIX', 'Primeira compra', NOW(), 'CONCLUIDA'),
+(2, 750.50, 75.05, 15.00, 'CARTAO', 'Cliente regular', NOW(), 'CONCLUIDA'),
+(3, 1200.00, 120.00, 20.00, 'DINHEIRO', 'Pagamento à vista', NOW(), 'CONCLUIDA'),
+(4, 350.25, 35.03, 5.00, 'PIX', 'Pedido pequeno', NOW(), 'CONCLUIDA'),
+(5, 900.00, 90.00, 0.00, 'TRANSFERENCIA', 'Frete grátis', NOW(), 'CONCLUIDA');
+
+-- Inserindo itens de venda de teste
+INSERT INTO itens_venda (venda_id, nome_produto, quantidade, valor_unitario, valor_total, percentual_comissao, valor_comissao) VALUES
+(1, 'Kit Básico', 1, 300.00, 300.00, 0.10, 30.00),
+(1, 'Máscara Cirúrgica', 20, 10.00, 200.00, 0.10, 20.00),
+
+(2, 'Termômetro Digital', 2, 150.00, 300.00, 0.10, 30.00),
+(2, 'Estetoscópio', 1, 300.00, 300.00, 0.15, 45.00),
+(2, 'Luvas', 10, 1.50, 15.00, 0.05, 0.75),
+(2, 'Álcool Gel', 5, 7.10, 35.50, 0.05, 1.78),
+
+(3, 'Cadeira de Rodas', 1, 1000.00, 1000.00, 0.10, 100.00),
+(3, 'Muleta', 2, 100.00, 200.00, 0.10, 20.00),
+
+(4, 'Seringa', 50, 2.00, 100.00, 0.05, 5.00),
+(4, 'Agulha', 100, 1.50, 150.00, 0.05, 7.50),
+(4, 'Gaze', 20, 5.00, 100.00, 0.05, 5.00),
+
+(5, 'Oxímetro', 3, 300.00, 900.00, 0.10, 90.00);
