@@ -16,11 +16,11 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         
-        // Permite todas as origens (ajuste para produção)
-        config.setAllowedOriginPatterns(List.of("*")); // Mudança importante aqui
+        // Permite todas as origens - use apenas para desenvolvimento
+        config.addAllowedOriginPattern("*"); // Método correto para patterns
         config.setAllowCredentials(true);
         config.setAllowedHeaders(List.of("*"));
-        config.setAllowedMethods(List.of("*"));
+        config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"));
         config.setExposedHeaders(List.of("Authorization", "content-type"));
         config.setMaxAge(3600L);
         
