@@ -26,19 +26,23 @@ public class VendaController {
     @Autowired
     private VendaService vendaService;
     
+    // Endpoint existente (mantenha para compatibilidade)
     @GetMapping
     public ResponseEntity<List<Venda>> listarTodas() {
         return ResponseEntity.ok(vendaService.listarTodas());
     }
     
+    // Novo endpoint com relacionamentos
+    @GetMapping("/completas")
+    public ResponseEntity<List<Venda>> listarTodasComRelacionamentos() {
+        return ResponseEntity.ok(vendaService.listarTodasComRelacionamentos());
+    }
+    
     @GetMapping("/{id}")
     public ResponseEntity<Venda> buscarPorId(@PathVariable Long id) {
         Optional<Venda> venda = vendaService.buscarPorId(id);
-        if (venda.isPresent()) {
-            return ResponseEntity.ok(venda.get());
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+        return venda.map(ResponseEntity::ok)
+                   .orElseGet(() -> ResponseEntity.notFound().build());
     }
     
     @PostMapping
@@ -50,5 +54,4 @@ public class VendaController {
             return ResponseEntity.badRequest().build();
         }
     }
-    
 }

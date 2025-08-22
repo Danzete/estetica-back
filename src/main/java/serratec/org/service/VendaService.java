@@ -29,6 +29,9 @@ public class VendaService {
     public List<Venda> listarTodas() {
         return vendaRepository.findAll();
     }
+    public List<Venda> listarTodasComRelacionamentos() {
+    return vendaRepository.findAllWithClienteAndItens();
+    }
     
     public Optional<Venda> buscarPorId(Long id) {
         return vendaRepository.findById(id);

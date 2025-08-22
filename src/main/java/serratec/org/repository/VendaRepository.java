@@ -3,6 +3,7 @@ package serratec.org.repository;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -66,4 +67,12 @@ public interface VendaRepository extends JpaRepository<Venda, Long> {
         ORDER BY v.dataVenda DESC
     """)
     List<VendaRecenteDTO> findVendasRecentes();
+    @Query("SELECT v FROM Venda v LEFT JOIN FETCH v.cliente LEFT JOIN FETCH v.itens ORDER BY v.dataVenda DESC")
+List<Venda> findAllWithClienteAndItens();
+
+    // ... outros métodos existentes ...
+    
+ 
+    @Query("SELECT v FROM Venda v LEFT JOIN FETCH v.cliente LEFT JOIN FETCH v.itens WHERE v.id = :id")
+    Optional<Venda> findByIdWithRelacionamentos(@Param("id") Long id);
 }

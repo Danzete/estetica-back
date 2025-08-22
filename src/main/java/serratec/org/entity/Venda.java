@@ -7,8 +7,8 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -33,12 +33,12 @@ public class Venda {
     private Long id;
     
     @ManyToOne(fetch = FetchType.LAZY)
-    @JsonIgnoreProperties
+   @JsonBackReference
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
     
     @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-     @JsonManagedReference
+    @JsonBackReference
     private List<ItemVenda> itens = new ArrayList<>();
     
     @Column(nullable = false)

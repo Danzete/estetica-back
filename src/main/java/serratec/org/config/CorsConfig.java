@@ -1,5 +1,7 @@
 package serratec.org.config;
 
+import java.util.List;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.cors.CorsConfiguration;
@@ -14,14 +16,15 @@ public class CorsConfig {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
         
-        // Configurações específicas para desenvolvimento
+        // Permite todas as origens (ajuste para produção)
+        config.setAllowedOriginPatterns(List.of("*")); // Mudança importante aqui
         config.setAllowCredentials(true);
-        config.addAllowedOriginPattern("*" );
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
+        config.setAllowedHeaders(List.of("*"));
+        config.setAllowedMethods(List.of("*"));
+        config.setExposedHeaders(List.of("Authorization", "content-type"));
         config.setMaxAge(3600L);
         
-        source.registerCorsConfiguration("/api/**", config);
+        source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
 }
