@@ -1,5 +1,7 @@
 package serratec.org.config;
 
+import java.util.Arrays;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,9 +19,9 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
-            .csrf(csrf -> csrf.disable()) // Desabilita CSRF para APIs
+            .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(authz -> authz
-                .requestMatchers("/api/**").permitAll() // Permite acesso a todas as APIs
+                .requestMatchers("/api/**").permitAll()
                 .anyRequest().authenticated()
             );
         
@@ -30,11 +32,17 @@ public class SecurityConfig {
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration config = new CorsConfiguration();
         config.setAllowCredentials(true);
-        config.addAllowedOrigin("http://localhost:8081");
-        config.addAllowedOrigin("http://localhost:3000");
-        config.addAllowedOrigin("https://estetica-backend-0gia.onrender.com");
-        config.addAllowedHeader("*");
-        config.addAllowedMethod("*");
+        
+        // Adicione TODOS os domínios que precisam acessar o backend
+        config.setAllowedOrigins(Arrays.asList(
+            "http://localhost:8081",
+            "http://localhost:3000",
+            "https://estetica-react-front.vercel.app", // DOMÍNIO DO FRONTEND NO VERCEL
+            "https://estetica-backend-0gia.onrender.com"
+        ));
+        
+        config.setAllowedHeaders(Arrays.asList("*"));
+        config.setAllowedMethods(Arrays.asList("*"));
         
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         source.registerCorsConfiguration("/**", config);

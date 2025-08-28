@@ -15,28 +15,25 @@ public class CorsConfig {
     public CorsFilter corsFilter() {
         CorsConfiguration config = new CorsConfiguration();
         
-        // Permite credenciais
         config.setAllowCredentials(true);
         
-        // Origens específicas - MUDE PARA SUAS URLs
+        // Adicione o domínio do Vercel aqui também
         config.setAllowedOrigins(Arrays.asList(
             "http://localhost:8081",
             "http://localhost:3000",
+            "https://estetica-react-front.vercel.app", // DOMÍNIO DO FRONTEND
             "https://estetica-backend-0gia.onrender.com"
         ));
         
-        // Headers permitidos
         config.setAllowedHeaders(Arrays.asList(
             "Origin", "Content-Type", "Accept", "Authorization",
             "Access-Control-Allow-Origin", "Access-Control-Allow-Credentials"
         ));
         
-        // Métodos permitidos
         config.setAllowedMethods(Arrays.asList(
             "GET", "POST", "PUT", "DELETE", "OPTIONS", "HEAD"
         ));
         
-        // Headers expostos
         config.setExposedHeaders(Arrays.asList(
             "Authorization", "Access-Control-Allow-Origin", 
             "Access-Control-Allow-Credentials"
