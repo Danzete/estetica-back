@@ -7,7 +7,6 @@ import java.util.List;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.CascadeType;
@@ -33,12 +32,11 @@ public class Venda {
     private Long id;
     
     @ManyToOne(fetch = FetchType.LAZY)
-   @JsonBackReference
+    @JsonIgnoreProperties({"vendas"}) // Evita referência circular mas serializa outros campos
     @JoinColumn(name = "cliente_id", nullable = false)
     private Cliente cliente;
     
-    @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonBackReference
+     @OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<ItemVenda> itens = new ArrayList<>();
     
     @Column(nullable = false)

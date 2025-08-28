@@ -32,6 +32,9 @@ public class DashboardService {
             .reduce(BigDecimal.ZERO, BigDecimal::add));
         dashboard.setQuantidadeVendasMes(vendasMes.size());
         
+        // ✅ ADICIONE ESTA LINHA - Total de comissões do mês
+        dashboard.setTotalComissoesMes(vendaRepository.calcularTotalComissaoPeriodo(inicio, fim));
+        
         // Produtos mais e menos vendidos
         List<ProdutoAnalyticsDTO> produtosAnalytics = vendaRepository.findProdutosMaisVendidos(inicio, fim);
         dashboard.setProdutosMaisVendidos(produtosAnalytics.subList(0, Math.min(5, produtosAnalytics.size())));
